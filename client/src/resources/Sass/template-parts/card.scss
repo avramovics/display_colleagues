@@ -1,0 +1,56 @@
+.card {
+    background-color:var(--light);
+    margin-bottom:25px;
+    float: none;
+    width: 340px;
+    margin: 25px 25px;
+
+
+    filter: drop-shadow(0px 0px 8px rgb(130, 123, 123));
+    @media only screen and (max-width: 400px) {
+        margin: 25px 0px;
+    }
+    overflow: hidden;
+    img{
+        width: 100%;
+        max-height: 355px;
+        object-fit: cover;
+        object-position: top center;
+    }
+    svg{
+        width: 100%;
+        max-height: 355px;
+        object-fit: cover;
+        object-position: top center;
+    }
+    a.nostyle:link {
+        text-decoration: inherit;
+        color: inherit;
+    }
+    
+    a.nostyle:visited {
+        text-decoration: inherit;
+        color: inherit;
+    }
+    a.nostyle:hover{
+    color:var(--cta)
+    }
+  &__body{
+    padding:10px;
+    display: grid;
+    grid-template-columns:  60% 40%;
+    grid-template-rows: auto;
+   
+  }
+  &__social{
+        margin-right:-10px;
+      text-align: right;
+      margin-top:18px;
+  }
+  &__social a{
+      
+    margin-right:10px;
+    }
+ 
+}
+
