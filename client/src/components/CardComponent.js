@@ -11,7 +11,8 @@ function CardComponent(props) {
             <div className="card__img_wrapper">
                 { props.user.imagePortraitUrl ? 
                     <img tabIndex="0" src={ props.user.imagePortraitUrl } alt="Profil bild"/> : 
-                    <img src="/images/imagePlaceholder.png" alt="Place holder profile image" /> } 
+                    <img src="/images/imagePlaceholder.png" alt="Place holder profile image" />
+                } 
             </div> 
             <div className="card__body">
             <div className="card__info">

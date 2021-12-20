@@ -16,7 +16,8 @@ Next cd in to server and run `npm install` ( if not installed ) and then `npm st
 The app is running on port specified in .env file located under server.. 
 example http://localhost:8080 
 
-
+username: admin 
+password: admin 
 
 
 
