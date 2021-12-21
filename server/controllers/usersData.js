@@ -8,10 +8,12 @@ module.exports = function(router) {
     // copy response headers
     for (var key in response.headers) {
       if (response.headers.hasOwnProperty(key)) {
-        res.setHeader(key, response.headers[key])
+        if(!"Content-Length"){
+          res.setHeader(key, response.headers[key])
+        }
       }
-    }
-    res.status(response.statusCode).send(body)
+     }
+    res.status(response.statusCode).send(JSON.parse(body))
   })
   })
   return router

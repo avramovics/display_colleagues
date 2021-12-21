@@ -43,4 +43,36 @@ describe('POST /login', function() {
         done()
       })
   })
+
+
+  let JWT_TOKEN
+  beforeEach(function(done) {
+    request(app)
+    .post('/login')
+    .type('json')
+    .send('{"username":"admin","password":"admin"}')
+    .end(function(err, res) {
+      if (err) return done(err)
+      expect(res.body).have.property('jwt')  
+      JWT_TOKEN = res.body.jwt
+      done();
+  });
+});
+
+  it('it returns array of data using JWT', function(done) {
+    let JWT_TOKEN_OBJECT  = 'Bearer '.concat( JWT_TOKEN ) 
+    request(app)
+      .get('/api/users-data')
+      .set('authorization', JWT_TOKEN_OBJECT)
+      .expect(200)
+      .end(function(err, res) {
+        if (err) return done(err)
+      expect(res.body).to.be.a('array')
+      done()
+    });
+  });
+  
 })
+
+
+

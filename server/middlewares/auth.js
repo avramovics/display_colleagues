@@ -1,7 +1,7 @@
 var jwt = require('jsonwebtoken')
 
 module.exports = function(req, res, next) {
-    /*
+  /*
      * Check if authorization header is set
      */
   if (
