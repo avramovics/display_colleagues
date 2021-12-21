@@ -13,8 +13,7 @@ class UsersListContainer extends Component {
         super(props);
         this.state = {  
           responsData: null,
-          display: "Grid",
-          loading:true
+          display: "Grid"
         };
 
         this.handleView = this.handleView.bind(this);
