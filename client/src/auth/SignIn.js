@@ -24,6 +24,7 @@ class SignIn extends Component {
           data: { username: this.state.username, password: this.state.password }
         })
           .then(res => {
+            console.log(res.data)
             this.props.signIn(res.data)
           })
           .catch(err => {

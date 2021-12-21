@@ -13,21 +13,21 @@ function ListComponent(props) {
                     <span tabIndex="0">{props.user.office}</span>
                 </div>
                 <div className="list__social">
-                    <a className="nostyle linkedin" 
+                { props.user.linkedIn ?  <a className="nostyle linkedin" 
                         href={["https://www.linkedin.com/", props.user.linkedIn].join('')} 
                         title="linkedin profile" > 
                         {Linkedin} 
-                    </a>
-                    <a className="nostyle github" 
+                    </a> : ""}
+                    { props.user.gitHub ?  <a className="nostyle github" 
                     href={["https://github.com/", props.user.gitHub].join('')} 
                     title="github profile" > 
                         {Github} 
-                    </a>
-                    <a className="nostyle twitter" 
+                    </a> : "" }
+                    { props.user.twitter  ? <a className="nostyle twitter" 
                         href={["https://twitter.com/", props.user.twitter].join('')} 
                         title="twitter profile"> 
                         {Twitter} 
-                    </a>
+                    </a> : "" }
                 </div>
             </li>
     );
