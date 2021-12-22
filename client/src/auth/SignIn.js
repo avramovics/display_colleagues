@@ -14,7 +14,7 @@ class SignIn extends Component {
       handleChange = e => {
         this.setState({ [e.target.name]: e.target.value })
       }
-    
+  
       handleSubmit = event => {
         event.preventDefault()
 
@@ -24,7 +24,6 @@ class SignIn extends Component {
           data: { username: this.state.username, password: this.state.password }
         })
           .then(res => {
-            console.log(res.data)
             this.props.signIn(res.data)
           })
           .catch(err => {
