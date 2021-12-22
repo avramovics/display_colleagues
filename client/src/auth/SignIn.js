@@ -51,6 +51,7 @@ class SignIn extends Component {
                   type="password"
                   name="password"
                   placeholder="Password"
+                  autoComplete="on"
                   value={this.state.password}
                   onChange={this.handleChange}
                 />
