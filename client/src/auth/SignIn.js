@@ -56,7 +56,7 @@ class SignIn extends Component {
                   onChange={this.handleChange}
                 />
                 <br />
-                <input type="submit" className="btn action_button"/>
+                <input type="submit" className="btn action_btn"/>
               </form>
             </div>
             <div className="row">

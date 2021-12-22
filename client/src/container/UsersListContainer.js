@@ -39,11 +39,11 @@ class UsersListContainer extends Component {
       }
     render() {
 
-      let view = <div>{!this.state.responsData ? "Loading" : ""}</div>;
-      if(Array.isArray(this.state.responsData) && this.state.display === "Grid"){
-        view = this.state.responsData.map( (user) => Grid(user) ); 
-      } else if( Array.isArray(this.state.responsData) && this.state.display === "List" ){
-        view = <ul className="list" aria-label="Personal lista"> { this.state.responsData.map( (user) => List(user) ) } </ul> 
+      let view = <div>{ !this.state.responsData ? "Loading" : "" }</div>;
+      if( Array.isArray( this.state.responsData ) && this.state.display === "Grid" ){
+        view = this.state.responsData.map( ( user ) => Grid( user ) ); 
+      } else if( Array.isArray( this.state.responsData ) && this.state.display === "List" ){
+        view = <ul className="list" aria-label="Personal lista"> { this.state.responsData.map( ( user ) => List( user ) ) } </ul> 
       }
       
         return (
