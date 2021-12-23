@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios'
 import CardComponent  from '../components/CardComponent'
 import ListComponent  from '../components/ListComponent'
 import FilterComponent  from '../components/FilterComponent'
+import PropTypes from 'prop-types'
 
 let Grid = (user) => <CardComponent user={user} key={ user.email } />
 let List = (user) => <ListComponent user={user} key={ user.email } />
@@ -62,4 +63,12 @@ class UsersListContainer extends Component {
 function mapStateToProps(state) {
     return { isLogged: state.isLogged}
   }
+
+  UsersListContainer.propTypes = {
+    isLogged: PropTypes.shape({
+      jwt: PropTypes.string
+    })
+  }
+
+
 export default connect(mapStateToProps, null)(UsersListContainer)

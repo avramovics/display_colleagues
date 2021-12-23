@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faTwitter, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import PropTypes from 'prop-types'
 
 const Github = <FontAwesomeIcon icon={faGithub} size="2x"  />
 const Twitter = <FontAwesomeIcon icon={faTwitter} size="2x" />
@@ -32,5 +33,16 @@ function ListComponent(props) {
             </li>
     );
 }
+
+
+ListComponent.propTypes = {
+    user: PropTypes.shape({
+        name: PropTypes.string,
+        office: PropTypes.string,
+        linkedIn: PropTypes.string,
+        gitHub: PropTypes.string,
+        twitter: PropTypes.string,
+      })
+  }
 
 export default ListComponent;

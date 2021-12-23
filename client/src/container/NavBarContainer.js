@@ -1,5 +1,4 @@
 import { Component } from 'react';
-import { connect } from 'react-redux';
 import SignOut from '../auth/SignOut'
 class NavBarContainer extends Component {
     render() {
@@ -20,7 +19,5 @@ class NavBarContainer extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return { counter: state.counter }
-  }
-  export default connect(mapStateToProps,null)(NavBarContainer)
+
+  export default NavBarContainer
