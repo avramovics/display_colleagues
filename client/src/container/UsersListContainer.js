@@ -24,11 +24,12 @@ class UsersListContainer extends Component {
      async componentDidMount(){
         axios.defaults.headers.common.authorization = 'Bearer '.concat( this.props.isLogged.jwt ) 
         try{
-            const response =  await axios({
+            const response = await axios({
             method: 'get',
             url: 'http://localhost:8080/api/users-data'
           })
-          this.setState({ responsData: await response.data })
+
+          this.setState({ responsData: response.data })
         }catch (err){
           this.setState({ responsData: [] })
           console.log(err)
