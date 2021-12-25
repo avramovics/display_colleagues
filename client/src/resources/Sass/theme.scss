@@ -1,12 +1,14 @@
 .bg_color{
     background-color: var(--bakgrund);
 }
-.text_color{
-    color: var( --text-color);
-}
 .text_light{
     color: var( --text-light);
 }
 .text_dark{
     color: var( --text-dark);
+}
+.errorMessage{
+    margin-top: 20px;
+    color:var(--cta);
+    display:block;
 }

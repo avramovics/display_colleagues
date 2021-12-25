@@ -28,7 +28,6 @@ class UsersListContainer extends Component {
             method: 'get',
             url: 'http://localhost:8080/api/users-data'
           })
-
           this.setState({ responsData: response.data })
         }catch (err){
           this.setState({ responsData: [] })

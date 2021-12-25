@@ -27,7 +27,7 @@ class SignIn extends Component {
             this.props.signIn(res.data)
           })
           .catch(err => {
-            this.setState({ responsData: 'not loged in' })
+            this.setState({ responsData: 'Something went wrong!' })
             console.log(err)
           })
     }
@@ -57,13 +57,10 @@ class SignIn extends Component {
                 />
                 <br />
                 <input type="submit" className="btn action_btn"/>
+                {this.state.responsData ? <span className="errorMessage">{this.state.responsData}</span> : ""}
               </form>
             </div>
-            <div className="row">
-              <div className="col12">
-                {this.state.responsData ? <h2>{this.state.responsData}</h2> : ""}
-              </div>
-            </div>
+   
           </section>
         );
     }
