@@ -1,11 +1,9 @@
-
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
-import SignIn from './auth/SignIn';
-import './App.scss';
+import SignIn from './js/auth/SignIn';
 
-import DashBoardComponent from './components/DashBoardComponent'
+import DashBoardComponent from './js/components/DashBoardComponent'
 class App extends Component {
   render() {
 
@@ -19,7 +17,7 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {  isLogged: state.isLogged }
-} 
+}
 DashBoardComponent.propTypes = {
   isLogged: PropTypes.bool
 }

@@ -2,6 +2,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faTwitter, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import PropTypes from 'prop-types'
 
+import React from 'react';
+
 const Github = <FontAwesomeIcon icon={faGithub} size="2x"  />
 const Twitter = <FontAwesomeIcon icon={faTwitter} size="2x" />
 const Linkedin = <FontAwesomeIcon icon={faLinkedinIn} size="2x" />

@@ -10,14 +10,15 @@ class SignIn extends Component {
             username: '',
             responsData: ''
           }
-    }
+          this.handleSubmit = this.handleSubmit.bind(this)
+     }
       handleChange = e => {
         this.setState({ [e.target.name]: e.target.value })
       }
   
       handleSubmit = event => {
+        console.log(event)
         event.preventDefault()
-
         axios({
           method: 'post',
           url: 'http://localhost:8080/login',
@@ -35,7 +36,7 @@ class SignIn extends Component {
         return (
           <section className="container auth-form bg_color">
             <div className="row">
-              <form onSubmit={this.handleSubmit}>
+              <form onSubmit={this.handleSubmit} >
                 <h1>Login</h1>
                 <label>Username</label>
                 <input
@@ -53,7 +54,7 @@ class SignIn extends Component {
                   placeholder="Password"
                   autoComplete="on"
                   value={this.state.password}
-                  onChange={this.handleChange}
+                  onChange={ this.handleChange}
                 />
                 <br />
                 <input type="submit" className="btn action_btn"/>
