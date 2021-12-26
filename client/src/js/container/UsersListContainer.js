@@ -31,7 +31,6 @@ class UsersListContainer extends Component {
           this.setState({ responsData: response.data })
         }catch (err){
           this.setState({ responsData: [] })
-          console.log(err)
         }
 
       }

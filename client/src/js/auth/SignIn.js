@@ -17,7 +17,6 @@ class SignIn extends Component {
       }
   
       handleSubmit = event => {
-        console.log(event)
         event.preventDefault()
         axios({
           method: 'post',
@@ -29,7 +28,6 @@ class SignIn extends Component {
           })
           .catch(err => {
             this.setState({ responsData: 'Something went wrong!' })
-            console.log(err)
           })
     }
     render() {
