@@ -1,10 +1,10 @@
-Start with creating an .env file in server see .env.example 
+Start with creating an .env file in root see .env.example 
 Fill in the right information. 
 
 To setup the project for development
 Cd in to client and run `npm install`
-run `npm start` to start React
-React is running on http://localhost:3000/
+run `npm run dev` to start React
+React is running on http://localhost:${ proces.env.PORT_CLIENT }/
 
 Next cd in to server and run `npm install` and then `npm start`
 Node is running on http://localhost:{ process.env.PORT }
