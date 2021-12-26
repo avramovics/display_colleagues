@@ -1,5 +1,6 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import SignOut from '../auth/SignOut'
+
 class NavBarContainer extends Component {
     render() {
        const url = window.location;

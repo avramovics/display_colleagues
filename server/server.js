@@ -2,7 +2,8 @@ var express = require('express')
 var app = express()
 var router = express.Router()
 var bodyParser = require('body-parser')
-require('dotenv').config()
+require('dotenv').config({path:__dirname+'/../.env'})
+
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 var path = require('path')
@@ -33,11 +34,10 @@ if(process.env.APP_ENV === "dev"){
   * We will serve the static files..
   */
 
-  app.use(express.static('../client/build'))
-  app.use(express.static('../client/public'))
+  app.use(express.static('../client/dist'))
 
   app.get('/', (req,res)=>{
-    res.sendFile(path.join(__dirname+ '/../client/build/'+ 'index.html'))
+    res.sendFile(path.join(__dirname+ '/../client/dist/'+ 'index.html'))
   })
 
 

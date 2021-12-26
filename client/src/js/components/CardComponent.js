@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faTwitter, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import PropTypes from 'prop-types'
 
+import React from 'react';
 const Github = <FontAwesomeIcon icon={faGithub} size="2x" />
 const Twitter = <FontAwesomeIcon icon={faTwitter} size="2x" />
 const Linkedin = <FontAwesomeIcon icon={faLinkedinIn} size="2x" />
@@ -12,7 +13,7 @@ function CardComponent(props) {
             <div className="card__img_wrapper">
                 { props.user.imagePortraitUrl ? 
                     <img tabIndex="0" src={ props.user.imagePortraitUrl } alt="Profil bild"/> : 
-                    <img src="/images/imagePlaceholder.png" alt="Place holder" />
+                    <img src="./img/imagePlaceholder.png" alt="Place holder" />
                 } 
             </div> 
             <div className="card__body">
