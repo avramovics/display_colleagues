@@ -19,7 +19,7 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {  isLogged: state.isLogged }
-}
+} 
 DashBoardComponent.propTypes = {
   isLogged: PropTypes.bool
 }
