@@ -1,8 +1,24 @@
 const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+/**
+ * HtmlWebpackPlugin
+ * The plugin will generate an HTML5 file for you that includes all your webpack bundles in the body using script tags
+ */
+const HtmlWebpackPlugin = require("html-webpack-plugin"); 
+
+/**
+ * MiniCssExtractPlugin
+ * This plugin extracts CSS into separate files. 
+ * It creates a CSS file per JS file which contains CSS. 
+ * It supports On-Demand-Loading of CSS and SourceMaps.
+ */
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+
 require('dotenv').config({path:__dirname+'/../.env'})
+
+
 module.exports = {
+
   entry: {
     app: path.join(__dirname, "/src/Index.js"),
   },
@@ -15,28 +31,50 @@ module.exports = {
   module: {
     rules: [
       {
+         /**
+         * test
+         * Reg.exp
+         */
         test: /\.(sa|sc|c)ss$/,
+        exclude: /node_modules/,
+        /**
+         * css-loader Loads CSS file with resolved imports and returns CSS code
+         * sass-loader Loads and compiles a SASS/SCSS file
+         */
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
       {
+
+        /**
+         * babel-loader Loads ES2015+ code and transpiles to ES5 using Babel
+         */
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: "babel-loader",
       },
       {
         test: /\.html$/,
+        exclude: /node_modules/,
+        /**
+         * html-loader Exports HTML as string, require references to static resources
+         */
         use: "html-loader",
       },
     ],
   },
 
+  /**
+   * Attempt to resolve these extensions in order. 
+   * If multiple files share the same name but have different extensions, 
+   * webpack will resolve the one with the extension listed first in the array and skip the rest.
+   */
   resolve: {
     extensions: [".js", ".jsx"],
   },
 
+
   plugins: [
     new HtmlWebpackPlugin({
-      title: "React App",
       filename: "index.html",
       template: "./src/index.html",
     }),
@@ -46,6 +84,7 @@ module.exports = {
       chunkFilename: "[id].css",
     }),
   ],
+
   devServer: {
     historyApiFallback: true,
     contentBase: path.join(__dirname, "dist"),
@@ -53,5 +92,5 @@ module.exports = {
     port: process.env.PORT_CLIENT, 
     open: true,
     stats: "errors-only",
-  },
+  }
 };
