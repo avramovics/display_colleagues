@@ -1,3 +1,5 @@
+Uses node version 16 
+
 Start with creating an .env file in root see .env.example 
 Fill in the right information. 
 
