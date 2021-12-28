@@ -13,6 +13,12 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
  */
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
+/**
+ * dotenv-webpack and webpack so we can use .env vars inside react..
+ */
+const Dotenv = require('dotenv-webpack');
+const webpack = require('webpack');
+
 
 require('dotenv').config({path:__dirname+'/../.env'})
 
@@ -44,6 +50,10 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
       {
+        test: /\.css$/,
+        use: 'style-loader!css-loader'
+       },
+      {
 
         /**
          * babel-loader Loads ES2015+ code and transpiles to ES5 using Babel
@@ -71,9 +81,17 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx"],
   },
-
-
+ /***
+  * EnvironmentPlugin
+  * Use .env file to specify APP_API_URL
+  */
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        APP_API_URL : JSON.stringify(process.env.APP_API_URL)
+      },
+    }),
+    new Dotenv(),
     new HtmlWebpackPlugin({
       filename: "index.html",
       template: "./src/index.html",

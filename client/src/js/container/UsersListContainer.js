@@ -7,7 +7,8 @@ import FilterComponent  from '../components/FilterComponent'
 import PropTypes from 'prop-types'
 
 let Grid = (data) => data.map( ( user ) => <CardComponent user={user} key={ user.email } /> );  
-let List = (data) => <ul className="list" aria-label="Personal lista"> { data.map( ( user ) => <ListComponent user={user} key={ user.email } />) } </ul> 
+let List = (data) => <ul className="list" aria-label="Personal lista"> 
+                   { data.map( ( user ) => <ListComponent user={user} key={ user.email } />) }</ul> 
 
 class UsersListContainer extends Component {
     constructor(props) {
@@ -27,7 +28,7 @@ class UsersListContainer extends Component {
         try{
             const response = await axios({
             method: 'get',
-            url: 'http://localhost:8080/api/users-data'
+            url: `${process.env.APP_API_URL}/api/users-data`
           })
           if (response.data.some(element => element.hasOwnProperty('name'))) {
             this.setState({ responsData: response.data })

@@ -20,7 +20,7 @@ class SignIn extends Component {
         event.preventDefault()
         axios({
           method: 'post',
-          url: 'http://localhost:8080/login',
+          url: `${process.env.APP_API_URL}/login` ,
           data: { username: this.state.username, password: this.state.password }
         })
           .then(res => {
