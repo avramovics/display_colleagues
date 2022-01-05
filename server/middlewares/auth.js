@@ -1,13 +1,14 @@
 var jwt = require('jsonwebtoken')
 
 module.exports = function(req, res, next) {
-    /*
+  /*
      * Check if authorization header is set
      */
   if (
     req.headers.hasOwnProperty('authorization')
   ) {
     try {
+      
       /*
              * Try to decode & verify the JWT token
              * The token contains user's id ( it can contain more informations )
@@ -19,6 +20,7 @@ module.exports = function(req, res, next) {
         process.env.JWT_SECRET
       )
     } catch (err) {
+    
       /*
              * If the authorization header is corrupted, it throws exception
              * So return 401 status code with JSON error message
@@ -31,6 +33,7 @@ module.exports = function(req, res, next) {
       })
     }
   } else {
+    
     /*
          * If there is no autorization header, return 401 status code with JSON
          * error message
