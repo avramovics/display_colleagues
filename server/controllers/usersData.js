@@ -3,7 +3,7 @@ const request = require('request')
 module.exports = function(router) {
   router.get('/api/users-data', function(req, res) {
   const newurl = 'https://api.1337co.de/v3/employees'
-  const headers = {"Authorization": process.env.AUTHORIZATION_TOKEN}
+  const headers = {"authorization": process.env.AUTHORIZATION_TOKEN}
   request.get({url:newurl, headers: headers }, function (error, response, body) {
     // copy response headers
     for (var key in response.headers) {
